@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lunaria Quiz Generator</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#081226,#171c4d,#2b1d62);
+    color:white;
+    min-height:100vh;
+    display:flex;
+}
+
+.sidebar{
+    width:250px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+    border-right:1px solid rgba(255,255,255,0.1);
+    padding:25px;
+}
+
+.logo{
+    font-size:2rem;
+    font-weight:bold;
+    margin-bottom:40px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    padding:12px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.menu a:hover{
+    background:rgba(255,255,255,0.1);
+}
+
+.active{
+    background:rgba(124,92,255,0.3);
+}
+
+.main{
+    flex:1;
+    padding:40px;
+}
+
+.header h1{
+    font-size:3rem;
+}
+
+.header p{
+    color:#cfcfcf;
+    margin-top:10px;
+}
+
+.quiz-box{
+    margin-top:40px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    padding:30px;
+    border-radius:20px;
+}
+
+.quiz-box input{
+    width:100%;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    margin-top:15px;
+    font-size:16px;
+}
+
+.quiz-box button{
+    margin-top:20px;
+    padding:15px 25px;
+    border:none;
+    border-radius:12px;
+    background:#7c5cff;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.quiz-box button:hover{
+    opacity:0.9;
+}
+
+.result{
+    margin-top:30px;
+}
+
+.question{
+    background:rgba(255,255,255,0.08);
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+.option{
+    margin-top:10px;
+    color:#d8d8d8;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+🌙 Lunaria
+</div>
+
+<div class="menu">
+<a href="lunaria_dashboard.html">🏠 Dashboard</a>
+<a href="#">📚 Study Notes</a>
+<a href="quiz.html" class="active">❓ Quiz Generator</a>
+<a href="#">🧠 AI Tutor</a>
+<a href="#">📝 Flashcards</a>
+<a href="#">🎯 Study Planner</a>
+<a href="#">👥 Community</a>
+</div>
+
+</div>
+
+<div class="main">
+
+<div class="header">
+<h1>❓ Quiz Generator</h1>
+<p>Create practice questions instantly.</p>
+</div>
+
+<div class="quiz-box">
+
+<h2>Upload Study Material</h2>
+
+<input
+type="file"
+id="fileInput"
+accept=".pdf,.doc,.docx,.txt"
+>
+
+<p id="fileName"></p>
+
+<button onclick="generateQuiz()">
+Generate Quiz From File
+</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+</div>
+
+<script>
+
+const fileInput =
+document.getElementById("fileInput");
+
+fileInput.addEventListener("change", function(){
+
+let file = this.files[0];
+
+if(file){
+document.getElementById("fileName").innerHTML =
+"📄 " + file.name + " uploaded successfully";
+}
+
+});
+
+function generateQuiz(){
+
+let file =
+document.getElementById("fileInput").files[0];
+
+if(!file){
+alert("Upload a file first!");
+return;
+}
+
+document.getElementById("result").innerHTML = `
+
+<div class="question">
+<h3>📄 Quiz generated from: ${file.name}</h3>
+</div>
+
+<div class="question">
+<h3>1. What is the main topic of the uploaded file?</h3>
+
+<div class="option">A. Option A</div>
+<div class="option">B. Option B</div>
+<div class="option">C. Option C</div>
+<div class="option">D. Option D</div>
+</div>
+
+<div class="question">
+<h3>2. Which concept is most important?</h3>
+
+<div class="option">A. Option A</div>
+<div class="option">B. Option B</div>
+<div class="option">C. Option C</div>
+<div class="option">D. Option D</div>
+</div>
+
+<div class="question">
+<h3>3. What should be studied first?</h3>
+
+<div class="option">A. Option A</div>
+<div class="option">B. Option B</div>
+<div class="option">C. Option C</div>
+<div class="option">D. Option D</div>
+</div>
+
+`;
+
+}
+
+</script>
+</body>
+</html>
