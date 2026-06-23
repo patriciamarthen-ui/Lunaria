@@ -61,6 +61,28 @@
   </section>
 
 </div>
+<h2 id="greeting"></h2>
 
+<script>
+function setGreeting() {
+  const now = new Date();
+  const hour = now.getHours();
+
+  let message = "";
+
+  if (hour < 12) {
+    message = "Selamat pagi di Lunaria ☀️";
+  } else if (hour < 18) {
+    message = "Selamat siang di Lunaria 🌤️";
+  } else {
+    message = "Selamat malam di Lunaria 🌙";
+  }
+
+  document.getElementById("greeting").innerText = message;
+}
+
+setGreeting();
+</script>
 </body>
+
 </html>
