@@ -6,7 +6,13 @@
 }
 
 body{
-    background:red;
+    background:
+    radial-gradient(
+        circle at top,
+        #3b2a7a,
+        #1a1338 40%,
+        #0f0f1a 80%
+    );
     color:white;
 }
 
