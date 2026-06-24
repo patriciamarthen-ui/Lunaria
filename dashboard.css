@@ -1,0 +1,86 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0d0d18;
+    color:white;
+}
+
+.dashboard-body{
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:260px;
+    background:#151526;
+    padding:30px 20px;
+    border-right:1px solid rgba(255,255,255,.1);
+}
+
+.sidebar h2{
+    margin-bottom:40px;
+}
+
+.sidebar a{
+    display:block;
+    color:#d6d6d6;
+    text-decoration:none;
+    padding:14px;
+    margin-bottom:10px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.sidebar a:hover{
+    background:#8b5cf6;
+    color:white;
+}
+
+.main-content{
+    flex:1;
+    padding:40px;
+}
+
+.main-content h1{
+    font-size:42px;
+}
+
+.main-content p{
+    color:#b8b8b8;
+    margin-top:10px;
+}
+
+.cards{
+    margin-top:40px;
+
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:20px;
+}
+
+.card{
+    background:#1b1b2d;
+    border:1px solid rgba(255,255,255,.08);
+
+    padding:25px;
+
+    border-radius:20px;
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#8b5cf6;
+}
+
+.card h3{
+    margin-bottom:15px;
+}
