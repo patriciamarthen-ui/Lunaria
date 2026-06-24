@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notes - Lunaria</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1>📝 Lunaria Notes</h1>
+
+  <a href="index.html">⬅ Back</a>
+
+  <br><br>
+
+  <textarea id="note" placeholder="Tulis catatan..."></textarea>
+
+  <script>
+    const note = document.getElementById("note");
+
+    // ambil data lama
+    note.value = localStorage.getItem("lunaria_note") || "";
+
+    // auto save
+    note.addEventListener("input", function() {
+      localStorage.setItem("lunaria_note", note.value);
+    });
+  </script>
+
+</body>
+</html>
