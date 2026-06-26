@@ -1,129 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lunaria Chat</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
-
-body{
-    background:#0f172a;
-    color:white;
-    display:flex;
-    flex-direction:column;
-    height:100vh;
-}
-
-header{
-    padding:20px;
-    text-align:center;
-    font-size:24px;
-    font-weight:bold;
-    background:#1e1b4b;
-}
-
-#chat-box{
-    flex:1;
-    padding:20px;
-    overflow-y:auto;
-}
-
-.message{
-    max-width:70%;
-    padding:12px;
-    margin:10px 0;
-    border-radius:12px;
-}
-
-.user{
-    background:#2563eb;
-    margin-left:auto;
-}
-
-.ai{
-    background:#374151;
-}
-
-.input-area{
-    display:flex;
-    padding:15px;
-    background:#111827;
-}
-
-input{
-    flex:1;
-    padding:12px;
-    border:none;
-    border-radius:10px;
-    font-size:16px;
-}
-
-button{
-    margin-left:10px;
-    padding:12px 20px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-}
-</style>
+<title>Lunaria AI</title>
 </head>
 
 <body>
 
-<header>🌙 Lunaria Chat</header>
+<h1>🌙 Lunaria AI</h1>
 
-<div id="chat-box">
-    <div class="message ai">
-        Halo! Aku Lunaria. Tanyakan apa saja 😊
-    </div>
-</div>
+<input
+type="text"
+id="prompt"
+placeholder="Tanya apa saja..."
+style="width:300px;padding:10px;">
 
-<div class="input-area">
-    <input id="userInput" placeholder="Ketik pesan...">
-    <button onclick="sendMessage()">Kirim</button>
-</div>
+<button onclick="askAI()">
+Kirim
+</button>
 
-<script>
-function sendMessage(){
+<br><br>
 
-    let input = document.getElementById("userInput");
-    let text = input.value;
+<div id="result"></div>
 
-    if(text.trim() === "") return;
+<br>
 
-    let chatBox = document.getElementById("chat-box");
+<a href="home.html">
+⬅ Kembali ke Dashboard
+</a>
 
-    let userMsg = document.createElement("div");
-    userMsg.className = "message user";
-    userMsg.innerText = text;
-    chatBox.appendChild(userMsg);
-
-    let aiMsg = document.createElement("div");
-    aiMsg.className = "message ai";
-
-    if(text.toLowerCase().includes("halo")){
-        aiMsg.innerText = "Halo juga! 🌙";
-    }
-    else if(text.toLowerCase().includes("siapa kamu")){
-        aiMsg.innerText = "Aku Lunaria AI.";
-    }
-    else{
-        aiMsg.innerText = "Aku masih versi awal. Nanti kita buat lebih pintar 🚀";
-    }
-
-    chatBox.appendChild(aiMsg);
-
-    input.value = "";
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
